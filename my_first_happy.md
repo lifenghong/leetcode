@@ -1,36 +1,53 @@
 # 题目一  <h1>
-这里是内容
-## 题目二 <h2>
+####Write a program to find the node at which the intersection of two singly linked lists begins.
+##示例 <h2>
+> A:          a1 → a2
+                   ↘
+                     c1 → c2 → c3
+                   ↗            
+B:     b1 → b2 → b3
+##分析：
+####运用链表，若两个单独链接的列表都为空，无交集；重点在于判断不为空的情况，遍历链表寻找节点相交，（但刚开始我认为只是数字相同即可，所以试了几次也没有出来）后来有具体分析：
+>1.A:          a1 → a2
+                   ↘
+                     c1 → c2 → c3
+                   ↗            
+B:     b1 → b2 → b3
 
-- 条件一
-- 条件二
-
-> 这里引用一个名言
+a1 a2 c1 c2 c3 b1 b2 b3 c1 c2 c3
+b1 b2 b3 c1 c2 c3 a1 a2 c1 c2 c3
 
 ```C++
-# include<iostream>
-using namespace std;
-int main()
+/**
+* Definition for singly-linked list.
+* struct ListNode {
+*     int val;
+*     ListNode *next;
+*     ListNode(int x) : val(x), next(NULL) {}
+* };
+*/
+class Solution {
+public:
+    ListNode *gNode(ListNode *headA, ListNode *headB) 
 {
-	int a[100],i,j;
-	int N,M,X;
-	cin>>N>>M>>X;
-	for(i=0;i<M;i++)
-	cin>>a[i];
-	for(int n=0;n<N;n++)
-	{
-	  for(i=1;i<=X;i++)
-	  {
-		int temp;
-		temp=a[0];
-		for(j=0;j<M-1;j++)
-			a[j]=(a[j]+a[(j+1)%M])%100;
-			a[M-1]=(a[M-1]+temp)%100; 
-	for(i=0;i<M;i++)
-	cout<<a[i]%100<<" ";
-	cout<<endl;
-}
-}
-	return 0;
-}
+    ListNode *p1 = headA;
+    ListNode *p2 = headB;
+    if(p1!=p2)
+    return NULL;
+    else
+    if(p1!=NULL&&p2!=NULL&&p1!=p2)
+    {
+    	p1=p1->next;
+    	p2=p2->next;
+    	if(p1==p2)
+    	return p2;
+    	if(p1=NULL)
+    	p1=headA;
+    	if(p1=NULL)
+    	p2 = headB;
+    }
+    return p1;
+};
 ```
+##总结：
+####因为链表这一块比较薄弱，所以在试着联系指针链表还有结构体这一块，最近会逐步联系，慢慢由简入难。
