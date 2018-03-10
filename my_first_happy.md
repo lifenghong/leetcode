@@ -1,13 +1,18 @@
-# 题目一  <h1>
-####Write a program to find the node at which the intersection of two singly linked lists begins.
-##示例 <h2>
+# 题目一  
+  Write a program to find the node at which the intersection of two singly linked lists begins.
+  
+#示例 
+
 > A:          a1 → a2
                    ↘
                      c1 → c2 → c3
                    ↗            
 B:     b1 → b2 → b3
+
 ##分析：
+
 ####运用链表，若两个单独链接的列表都为空，无交集；重点在于判断不为空的情况，遍历链表寻找节点相交，（但刚开始我认为只是数字相同即可，所以试了几次也没有出来）后来有具体分析：
+
 >1.A:          a1 → a2
                    ↘
                      c1 → c2 → c3
@@ -50,4 +55,4 @@ public:
 };
 ```
 ##总结：
-####因为链表这一块比较薄弱，所以在试着联系指针链表还有结构体这一块，最近会逐步联系，慢慢由简入难。
+因为链表这一块比较薄弱，所以在试着联系指针链表还有结构体这一块，最近会逐步联系，慢慢由简入难。
